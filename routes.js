@@ -35,6 +35,7 @@ router.post('/new', function(req, res) {
 
 router.post('/play', function(req, res) {
   console.log('POST /play');
+  console.log('req.body', req.body);
   let game = JSON.parse(req.body.game);
   const guess = req.body.guess;
   game = data.checkGuess(game, guess);
