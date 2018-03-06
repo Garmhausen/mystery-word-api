@@ -35,8 +35,8 @@ router.post('/new', function(req, res) {
 
 router.post('/play', function(req, res) {
   console.log('POST /play');
-  console.log('req.body', req.body);
-  let game = JSON.parse(req.body.game);
+  // console.log('req.body', req.body);
+  let game = req.body.game;
   const guess = req.body.guess;
   game = data.checkGuess(game, guess);
   res.send(game);
@@ -44,7 +44,7 @@ router.post('/play', function(req, res) {
 
 router.post('/win', function(req, res) {
   console.log('POST /win')
-  const game = JSON.parse(req.body.game);
+  const game = req.body.game;
   req.checkBody('name', 'You must enter a name!').notEmpty();
   var errors = req.validationErrors();
   if (errors) {
