@@ -75,6 +75,7 @@ const createGame = function(difficulty) {
       word = _randomWord();
     }
   } else {
+    difficulty = 'Hard';
     while (word.length <= 8) {
       word = _randomWord();
     }
