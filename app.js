@@ -19,6 +19,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(expressValidator());
 
+app.use(function (req, res, next) {
+  res.setHeader('Access-Control-Allow-Origin', 'https://mystery-word-ng5.firebaseapp.com/');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  next();
+})
+
 app.use(routes);
 
 app.listen(process.env.PORT || 3000, function() {
