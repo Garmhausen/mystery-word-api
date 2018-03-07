@@ -22,6 +22,11 @@ function _randomWord() {
 const checkGuess = function(game, guess) {
   let correct        = false;
   let alreadyGuessed = false;
+
+  if (game.badGuessArray.includes(guess)) {
+    return game;
+  }
+
   for (let i = 0; i < game.wordArray.length; i++) {
     if (
       guess === game.wordArray[i].letter &&
